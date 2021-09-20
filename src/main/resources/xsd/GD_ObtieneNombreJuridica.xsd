@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
+        targetNamespace="http://xmlns.oracle.com/Application1/GD_ObtieneNombreJuridica/GD_ObtieneNombreJuridica" 
+        xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="processRequest">
+      <complexType>
+         <sequence>
+            <element name="cedulaJuridica" type="string"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="processResponse">
+      <complexType>
+         <sequence>
+            <element name="Resultado" type="string"/>
+            <element name="Error" type="string"/>
+            <element name="NombreSociedad" type="string"/>
+         </sequence>
+      </complexType>
+   </element>
+</schema>
