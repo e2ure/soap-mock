@@ -1,1 +1,1 @@
-A java soap mocking app
+A java soap mock app
