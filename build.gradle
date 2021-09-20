@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.4.10'
+	id 'org.springframework.boot' version '2.5.2'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
 }
@@ -10,26 +10,6 @@ sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
-}
-
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-web-services'
-        implementation 'wsdl4j:wsdl4j'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-}
-
-test {
-	useJUnitPlatform()
-}
-
-configurations {
-    jaxb
-}
-
-bootJar {
-    archiveBaseName = 'soap-mocking'
-    archiveVersion =  '0.0.1'
 }
 
 sourceSets {
@@ -62,3 +42,29 @@ task genJaxb {
 }
 
 compileJava.dependsOn genJaxb
+
+test {
+	useJUnitPlatform()
+}
+
+configurations {
+    jaxb
+}
+
+bootJar {
+    archiveBaseName = 'soap-mocking'
+    archiveVersion =  '0.0.1'
+}
+
+
+dependencies {
+	// https://mvnrepository.com/artifact/commons-logging/commons-logging
+	implementation 'commons-logging:commons-logging:1.2'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+    implementation 'wsdl4j:wsdl4j'
+    implementation 'org.codehaus.mojo:jaxb2-maven-plugin:2.5.0'
+    jaxb("org.glassfish.jaxb:jaxb-xjc")
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+        
+}
