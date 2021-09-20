@@ -11,21 +11,21 @@ import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
-public class GD_ObtieneNombreJuridicaRoute {
-	@Bean(name = "companies")
-	public DefaultWsdl11Definition defaultWsdl11Definition(@Qualifier("companiesxsd") XsdSchema companiesSchema) {
+public class GD_ObtienePersoneriaRoute {
+	@Bean(name = "companieslegalstatus")
+	public DefaultWsdl11Definition defaultWsdl11Definition(@Qualifier("companieslegalstatusxsd") XsdSchema legalStatusSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-		wsdl11Definition.setPortTypeName("GD_ObtieneNombreJuridica");
-		wsdl11Definition.setLocationUri("/ws/getname");
+		wsdl11Definition.setPortTypeName("GD_ObtienePersoneria");
+		wsdl11Definition.setLocationUri("/ws/getlegalstatus");
 		//wsdl11Definition.setServiceName("gd_obtienenombrejuridica_client_ep"); //setea el service name, pero de todos modos no cambia el binding
-		wsdl11Definition.setTargetNamespace("http://xmlns.oracle.com/Application1/GD_ObtieneNombreJuridica/GD_ObtieneNombreJuridica");
-		wsdl11Definition.setSchema(companiesSchema);
+		wsdl11Definition.setTargetNamespace("http://xmlns.oracle.com/GobiernoDigital/GD_ObtienePersoneria/GD_ObtienePersoneria");
+		wsdl11Definition.setSchema(legalStatusSchema);
 		return wsdl11Definition;
 	}
 
-	@Bean(name="companiesxsd")
-	public XsdSchema companySchema() {
-		return new SimpleXsdSchema(new ClassPathResource("xsd/GD_ObtieneNombreJuridica.xsd"));
+	@Bean(name = "companieslegalstatusxsd")
+	public XsdSchema legalStatusSchema() {
+		return new SimpleXsdSchema(new ClassPathResource("xsd/GD_ObtienePersoneria.xsd"));
 	}
 }
 

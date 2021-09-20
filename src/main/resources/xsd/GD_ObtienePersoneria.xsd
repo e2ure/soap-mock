@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/GobiernoDigital/GD_ObtienePersoneria/GD_ObtienePersoneria" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="processRequest">
+      <complexType>
+         <sequence>
+            <element name="cedulaJuridica" type="string"/>
+            <element name="usuario" type="string"/>
+            <element name="password" type="string"/>
+         </sequence>
+      </complexType>
+   </element>
+   <element name="processResponse">
+      <complexType>
+         <sequence>
+            <element name="Error" type="string"/>
+            <element name="Resultado" type="string"/>
+            <element name="XMLPersoneria" type="string"/>
+         </sequence>
+      </complexType>
+   </element>
+</schema>

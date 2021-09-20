@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.5.2'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'eclipse'
 }
 
 group = 'com.soinlabs'
@@ -23,7 +24,6 @@ sourceSets {
 
 task genJaxb {
     ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
-    ext.schema = "src/main/resources/xsd/GD_ObtieneNombreJuridica.xsd"
 
     outputs.dir sourcesDir
 
@@ -33,7 +33,8 @@ task genJaxb {
                     classpath: configurations.jaxb.asPath
             mkdir(dir: sourcesDir)
 
-            xjc(destdir: sourcesDir, schema: schema) {
+            xjc(destdir: sourcesDir) {
+            	schema(dir: "${projectDir}/src/main/resources/xsd", includes: '**/*.xsd')
                 arg(value: "-wsdl")
                 produces(dir: sourcesDir, includes: "**/*.java")
             }

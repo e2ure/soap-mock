@@ -12,6 +12,7 @@ package com.soinlabs.soapmock.repositories.common.utils;
 public class Company {
     private String identification;
     private String name;
+    private String legalStatus;
 
     public String getIdentification() {
         return identification;
@@ -23,6 +24,14 @@ public class Company {
 
     public String getName() {
         return name;
+    }
+
+    public void setLegalStatus(String legalStatus) {
+        this.legalStatus = legalStatus;
+    }
+    
+    public String getLegalStatus() {
+        return legalStatus;
     }
 
     public void setName(String name) {
