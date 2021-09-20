@@ -52,7 +52,7 @@ configurations {
 }
 
 bootJar {
-    archiveBaseName = 'soap-mocking'
+    archiveBaseName = 'soap-mock'
     archiveVersion =  '0.0.1'
 }
 

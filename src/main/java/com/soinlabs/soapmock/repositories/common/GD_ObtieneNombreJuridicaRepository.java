@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.soinlabs.soapmocking.repositories.common;
-import com.soinlabs.soapmocking.repositories.common.utils.Company;
+package com.soinlabs.soapmock.repositories.common;
 import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
+
+import com.soinlabs.soapmock.repositories.common.utils.Company;
 
 /**
  *

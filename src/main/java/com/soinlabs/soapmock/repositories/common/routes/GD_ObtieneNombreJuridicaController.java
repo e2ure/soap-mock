@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.soinlabs.soapmocking.repositories.common.routes;
+package com.soinlabs.soapmock.repositories.common.routes;
 
 import com.oracle.xmlns.application1.gd_obtienenombrejuridica.gd_obtienenombrejuridica.ProcessRequest;
 import com.oracle.xmlns.application1.gd_obtienenombrejuridica.gd_obtienenombrejuridica.ProcessResponse;
-import com.soinlabs.soapmocking.repositories.common.GD_ObtieneNombreJuridicaRepository;
+import com.soinlabs.soapmock.repositories.common.GD_ObtieneNombreJuridicaRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
