@@ -56,9 +56,6 @@ bootJar {
     archiveBaseName = 'soap-mock'
     archiveVersion =  '0.0.1'
     mainClass = 'com.soinlabs.soapmock.SoapMockingApplication'
-    manifest {
-        attributes 'Start-Class':'com.soinlabs.soapmock.SoapMockingApplication'
-    }
 }
 
 dependencies {
