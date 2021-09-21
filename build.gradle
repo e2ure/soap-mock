@@ -1,12 +1,3 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.10.RELEASE")
-    }
-}
-
 plugins {
 	id 'org.springframework.boot' version '2.5.2'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -64,7 +55,18 @@ configurations {
 bootJar {
     archiveBaseName = 'soap-mock'
     archiveVersion =  '0.0.1'
-    mainClass = 'com.soinlabs.soapmock.SoapMockingApplication'
+    //mainClass = 'com.soinlabs.soapmock.SoapMockingApplication'
+    manifest {
+		attributes 'Start-Class': 'com.soinlabs.soapmock.SoapMockingApplication'
+	}
+}
+
+springBoot {
+	mainClass = 'com.example.ExampleApplication'
+}
+
+jar {
+	enabled = false
 }
 
 dependencies {
