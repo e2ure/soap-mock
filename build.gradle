@@ -5,14 +5,6 @@ plugins {
 	id 'eclipse'
 }
 
-jar {
-    manifest {
-        attributes(
-                'Main-Class': 'com.soinlabs.soapmock.SoapMockingApplication'
-        )
-    }
-}
-
 group = 'com.soinlabs'
 version = '0.0.1'
 sourceCompatibility = '11'
@@ -60,6 +52,12 @@ configurations {
     jaxb
 }
 
+bootJar {
+    archiveBaseName = 'soap-mock'
+    archiveVersion =  '0.0.1'
+}
+
+
 dependencies {
 	// https://mvnrepository.com/artifact/commons-logging/commons-logging
 	implementation 'commons-logging:commons-logging:1.2'
@@ -70,9 +68,4 @@ dependencies {
     jaxb("org.glassfish.jaxb:jaxb-xjc")
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
         
-}
-
-bootJar {
-    archiveBaseName = 'soap-mock'
-    archiveVersion =  '0.0.1'
 }
