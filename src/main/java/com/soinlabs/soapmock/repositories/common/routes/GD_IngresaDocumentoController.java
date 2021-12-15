@@ -1,5 +1,8 @@
 package com.soinlabs.soapmock.repositories.common.routes;
 
+import javax.xml.bind.JAXBElement;
+import javax.xml.namespace.QName;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -30,8 +33,8 @@ public class GD_IngresaDocumentoController {
 
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "IngresaDocumento")
 	@ResponsePayload
-	public IngresaDocumentoResponse setDocumentInfo(@RequestPayload IngresaDocumento request) {
-		request.getArg0();
+	public JAXBElement<IngresaDocumentoResponse> setDocumentInfo(@RequestPayload JAXBElement<IngresaDocumento> request) {
+		
 		IngresaDocumentoResponse response = new IngresaDocumentoResponse();
 		response.setReturn("<DocumentoProcesado>\r\n"
 				+ "	<Errores>\r\n"
@@ -43,12 +46,14 @@ public class GD_IngresaDocumentoController {
 				+ "		</Error>\r\n"
 				+ "	</Errores>\r\n"
 				+ "</DocumentoProcesado>");
-		return response;
+		
+		
+		return createJaxbElement(response,IngresaDocumentoResponse.class);
 	}
 	
 	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "IngresarDocumentoDefectuoso")
 	@ResponsePayload
-	public IngresarDocumentoDefectuosoResponse setDocumentInfoWarned(@RequestPayload IngresarDocumentoDefectuoso request) {
+	public JAXBElement<IngresarDocumentoDefectuosoResponse> setDocumentInfoWarned(@RequestPayload JAXBElement<IngresarDocumentoDefectuoso> request) {
 		IngresarDocumentoDefectuosoResponse response = new IngresarDocumentoDefectuosoResponse();
 		response.setReturn("<DocumentoProcesado>\r\n"
 				+ "	<Errores>\r\n"
@@ -60,6 +65,10 @@ public class GD_IngresaDocumentoController {
 				+ "		</Error>\r\n"
 				+ "	</Errores>\r\n"
 				+ "</DocumentoProcesado>");
-		return response;
+		return createJaxbElement(response,IngresarDocumentoDefectuosoResponse.class);
 	}
+	
+	private <T> JAXBElement<T> createJaxbElement(T object, Class<T> clazz) {
+	    return new JAXBElement<>(new QName(clazz.getSimpleName()), clazz, object);
+	  }
 }
